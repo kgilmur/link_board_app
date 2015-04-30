@@ -1,0 +1,13 @@
+<div class="row">
+ <div class="col-md-6 col-md-offset-3">
+   <h1 class='text-center'>Post New Link</h1>
+
+
+
+   <%= bootstrap_form_for @post do |f| %>
+     <%= f.text_field :title, placeholder: "Enter a title" %>
+     <%= f.text_field :link, placeholder: "Enter a link" %>
+     <%= f.submit "Submit", class: "btn btn-primary" %>
+   <% end %>
+ </div>
+</div>

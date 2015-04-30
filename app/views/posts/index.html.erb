@@ -1,0 +1,27 @@
+ <%= render "layouts/flash" %>
+
+
+<div class="container">
+<div class="table-responsive">
+<table class="table">
+
+        <tr>
+          <th><h3>Title</h3></th>
+          <th><h3>Link</h3></th>
+          <th> &nbsp</th>
+        </tr>
+        <tr>
+
+          <% @posts.each do |post| %>
+          <td><%= post.title %></td>
+          <td><%= post.link %></td>
+          <td><%= link_to 'Show Post', post, :class=>'btn btn-primary'%></td>
+
+        </tr>
+      <% end %>
+    </table>
+    </div>
+
+<%= link_to 'Add New post', new_post_path %>
+
+</div>

@@ -20,7 +20,7 @@
       <span class="icon-bar"></span>
     </button>
     <div class="navbar-header">
-<%= "Hi #{@current_user.name}" if @current_user %>
+    <ul class="text-center" id="welcomename"><%= "Welcome, #{@current_user.name}" if @current_user %></ul>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">

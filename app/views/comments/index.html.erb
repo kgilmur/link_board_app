@@ -1,0 +1,55 @@
+<h1 class="text-center">Comments Page for "<%= @post.title %>"</h1>
+<h3 class="text-center"><%= link_to @post.link %></h3>
+
+<br>
+
+
+<div class="container">
+  <div class="table-responsive text-center">
+
+<div><%= link_to 'Add Comment', new_post_comment_path, :class=>'btn btn-primary'%> &nbsp <%= link_to 'Go Back to Posts', posts_path, :class=>'btn btn-primary'%></div>
+
+<br>
+
+ <%= render "layouts/flash" %>
+    <table class="table">
+
+      <tr>
+        <th><h3 class="text-center">Votes</h3></th>
+        <th><h3 class="text-center">Score</h3></th>
+        <th><h3 class="text-center">Comment</h3></th>
+        <th><h3 class="text-center">User</h3></th>
+      </tr>
+
+      <% @comments.each do |comment| %>
+      <%# @users.each do |user| %>
+      <tr>
+
+        <td>
+
+          <%= bootstrap_form_for [@post,comment,@vote] do |f| %>
+          <%= f.hidden_field :value, value: "1" %>
+          <%= f.button "", class: "btn btn-primary btn-xs glyphicon glyphicon-arrow-up" %>
+          <% end %>
+
+<br>
+
+          <%= bootstrap_form_for [@post,comment,@vote] do |f| %>
+          <%= f.hidden_field :value, value: "-1" %>
+          <%= f.button "", class: "btn btn-primary btn-xs glyphicon glyphicon-arrow-down" %>
+          <% end %>
+
+        </td>
+        <td><%= comment.votes.reduce(0){ |sum,v| sum + v.value} %></td>
+        <td><%= comment.body %></td>
+        <td><%= comment.user.name %></td>
+
+        <%# end %>
+        <% end %>
+      </tr>
+
+    </table>
+  </div>
+</div>
+
+

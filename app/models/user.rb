@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 # votes case by user
   has_many :ratings, class_name: 'Vote'
 
+  has_many :comments
+
 
   validates :email,
     presence: true,

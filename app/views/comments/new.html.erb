@@ -1,0 +1,14 @@
+
+<div class="row">
+ <div class="col-md-6 col-md-offset-3">
+   <h1 class='text-center'>Add a New Comment</h1>
+
+<br>
+
+   <%= bootstrap_form_for [@post,@comment] do |f| %>
+     <%= f.text_area :body, hide_label: true, placeholder: "Enter a Comment", class: "input-lg" %>
+     <%= f.submit "Submit", class: "btn btn-primary btn-lg btn-block" %>
+   <% end %>
+
+ </div>
+</div>

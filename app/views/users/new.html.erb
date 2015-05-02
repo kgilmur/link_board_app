@@ -1,14 +1,16 @@
-<div class="row">
+<div class="container">
  <div class="col-md-6 col-md-offset-3">
    <h1 class='text-center'>Signup</h1>
+
+   <br>
 
   <%= render "layouts/flash" %>
 
    <%= bootstrap_form_for :user do |f| %>
-    <%= f.text_field :name, placeholder: "Enter your name" %>
-     <%= f.text_field :email, placeholder: "Enter your email", icon: "user" %>
-     <%= f.password_field :password, placeholder: "Enter your password", icon: "lock" %>
-     <%= f.submit "Signup", class: "btn btn-primary" %>
+    <%= f.text_field :name, hide_label: true, placeholder: "Enter Your Name", icon: "tag", class: "input-lg" %>
+     <%= f.text_field :email, hide_label: true, placeholder: "Enter Your Email", icon: "user", class: "input-lg" %>
+     <%= f.password_field :password, hide_label: true, placeholder: "Enter Your Password", icon: "lock", class: "input-lg" %>
+     <%= f.submit "Signup", class: "btn btn-primary btn-lg btn-block" %>
    <% end %>
  </div>
 </div>

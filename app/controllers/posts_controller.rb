@@ -3,6 +3,9 @@ class PostsController < ApplicationController
  before_action :is_authenticated?
   def index
    @posts = Post.all
+   @vote = Vote.new
+   # @onepost = Post.find_by_id(params[:post_id])
+   # @user = User.find_by_id(@onepost.user_id)
   end
 
   def new
@@ -33,6 +36,11 @@ class PostsController < ApplicationController
 
 
   end
+
+    # def show
+    #   @comment = Comment.all
+    #   redirect_to post_comments_path
+    # end
 
   private
 

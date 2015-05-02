@@ -1,0 +1,35 @@
+
+body {
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+}
+
+
+#welcomename {
+  color: white;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.navbar {
+  font-size: 20px;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: 100 !important;
+}
+
+
+.background_image {
+  background: image-url('linksbackground.jpg');
+  background-repeat:no-repeat;
+  background-position: center center;
+  background-size: 50%;
+  height: 600px;
+}
+
+#hometitle {
+  font-size: 55px;
+}

@@ -1,27 +1,60 @@
+
+
+ <div class="container text-center">
+
+ <h1 class="text-center">Posts</h1>
+
+<br>
+
+
+<div class="text-center"><%= link_to 'Add New Post', new_post_path, :class=>'btn btn-primary'%></div>
+
+
+<br>
+<br>
+
+  <div class="table-responsive text-center">
  <%= render "layouts/flash" %>
+    <table class="table">
 
+      <tr>
+        <th><h3 class="text-center">Votes</h3></th>
+        <th><h3 class="text-center">Score</h3></th>
+        <th><h3 class="text-center">Title</h3></th>
+        <th><h3 class="text-center">Link</h3></th>
+        <th><h3 class="text-center">User</h3></th>
+        <th> &nbsp</th>
+      </tr>
 
-<div class="container">
-<div class="table-responsive">
-<table class="table">
+      <tr>
+        <% @posts.each do |post| %>
+        <td>
+          <%= bootstrap_form_for [post,@vote] do |f| %>
+          <%= f.hidden_field :value, value: "1" %>
+          <%= f.button "", class: "btn btn-primary btn-xs glyphicon glyphicon-arrow-up" %>
+          <% end %>
 
-        <tr>
-          <th><h3>Title</h3></th>
-          <th><h3>Link</h3></th>
-          <th> &nbsp</th>
-        </tr>
-        <tr>
+<br>
 
-          <% @posts.each do |post| %>
-          <td><%= post.title %></td>
-          <td><%= post.link %></td>
-          <td><%= link_to 'Show Post', post, :class=>'btn btn-primary'%></td>
+          <%= bootstrap_form_for [post,@vote] do |f| %>
+          <%= f.hidden_field :value, value: "-1" %>
+          <%= f.button "", class: "btn btn-primary btn-xs glyphicon glyphicon-arrow-down" %>
+          <% end %>
 
-        </tr>
+        </td>
+
+        <td><%= post.votes.reduce(0){ |sum,v| sum + v.value} %></td>
+
+        <td><%= post.title %></td>
+        <td><%= link_to post.link, post.link %></td>
+        <td><%= post.user.name %></td>
+        <td><%= link_to 'Show Comments', post_comments_path(post), :class=>'btn btn-primary'%></td>
+
+      </tr>
       <% end %>
     </table>
-    </div>
+  </div>
 
-<%= link_to 'Add New post', new_post_path %>
+
 
 </div>
